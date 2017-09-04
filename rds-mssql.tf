@@ -52,7 +52,7 @@ resource "aws_db_instance" "default_mssql" {
   license_model             = "license-included"
   storage_type              = "gp2"
   engine                    = "sqlserver-se"
-  engine_version            = "12.00.4422.0.v1"
+//  engine_version            = "12.00.4422.0.v1"
   instance_class            = "${var.rds_instance_class}"
   multi_az                  = "${var.rds_multi_az}"
   username                  = "${var.mssql_admin_username}"
