@@ -49,6 +49,7 @@ resource "aws_db_instance" "default_mssql" {
   depends_on                = ["aws_db_subnet_group.default_rds_mssql"]
   identifier                = "${var.environment}-mssql"
   allocated_storage         = "${var.rds_allocated_storage}"
+  publicly_accessible       = "${var.rds_publicly_accessible}"
   license_model             = "license-included"
   storage_type              = "gp2"
   engine                    = "sqlserver-se"
