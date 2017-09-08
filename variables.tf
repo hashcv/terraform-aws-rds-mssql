@@ -16,6 +16,10 @@ variable "rds_multi_az" {
   default = "false"
 }
 
+variable "rds_publicly_accessible" {
+  default = "false"
+}
+
 // Username for the administrator DB user.
 variable "mssql_admin_username" {}
 
