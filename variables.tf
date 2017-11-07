@@ -11,14 +11,12 @@ variable "rds_instance_class" {
   default = "db.m4.large"
 }
 
-// The instance type of the RDS instance.
 variable "rds_storage_type" {
   default = "io1"
 }
 
-// The instance type of the RDS instance.
 variable "rds_iops" {
-  default = "1000"
+  default = 1000
 }
 
 // Specifies if the RDS instance is multi-AZ.
