@@ -12,7 +12,7 @@ variable "rds_instance_class" {
 }
 
 variable "rds_storage_type" {
-  default = "io1"
+  default = "gp2"
 }
 
 variable "rds_iops" {
