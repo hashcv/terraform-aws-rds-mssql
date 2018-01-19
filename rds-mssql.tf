@@ -32,7 +32,7 @@ resource "aws_db_instance" "default_mssql" {
   identifier                = "${var.environment}-mssql"
   allocated_storage         = "${var.rds_allocated_storage}"
   storage_type              = "${var.rds_storage_type}"
-  iops                      = "${var.rds_iops}"
+#  iops                      = "${var.rds_iops}"
   option_group_name         = "${var.rds_option_group_name}"
   publicly_accessible       = "${var.rds_publicly_accessible}"
   license_model             = "license-included"
