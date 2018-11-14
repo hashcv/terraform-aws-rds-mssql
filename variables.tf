@@ -11,7 +11,7 @@ variable "rds_allocated_storage" {
 
 // The instance type of the RDS instance.
 variable "rds_instance_class" {
-  default = "db.m4.xlarge"
+  default = "db.m4.2xlarge"
 }
 
 variable "timezone" {
