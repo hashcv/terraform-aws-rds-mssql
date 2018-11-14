@@ -14,6 +14,10 @@ variable "rds_instance_class" {
   default = "db.m4.xlarge"
 }
 
+variable "timezone" {
+  default = "Central Europe Standard Time"
+}
+
 variable "rds_storage_type" {
   default = "gp2"
 }
