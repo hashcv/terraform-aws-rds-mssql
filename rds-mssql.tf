@@ -48,7 +48,7 @@ resource "aws_db_instance" "default_mssql" {
   skip_final_snapshot       = "${var.skip_final_snapshot}"
   final_snapshot_identifier = "${var.environment}-mssql-final-snapshot"
   auto_minor_version_upgrade = "${var.auto_minor_version_upgrade}"
-  timezone                  = "${var.timezone}"
+#  timezone                  = "${var.timezone}"
 }
 
 // Identifier of the mssql DB instance.
