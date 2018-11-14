@@ -11,7 +11,7 @@ variable "rds_allocated_storage" {
 
 // The instance type of the RDS instance.
 variable "rds_instance_class" {
-  default = "db.m4.large"
+  default = "db.m4.xlarge"
 }
 
 variable "rds_storage_type" {
@@ -44,6 +44,10 @@ variable "vpc_subnet_ids" {
   
 variable "rds_option_group_name" {
   default = "main-mssql"
+}
+
+variable "auto_minor_version_upgrade" {
+  default = "true"
 }
 
 // The VPC identifier where security groups are going to be applied.
