@@ -27,6 +27,24 @@ resource "aws_security_group" "rds_mssql_security_group" {
   }
 }
 
+resource "aws_security_group" "rds_mssql_security_group_2" {
+  name        = "${var.environment}-all-rds-mssql-trusted"
+  description = "${var.environment} allow all trusted traffic to rds mssql."
+  vpc_id      = "${var.vpc_id}"
+
+  ingress {
+    from_port   = 1433
+    to_port     = 1433
+    protocol    = "tcp"
+    cidr_blocks = ["${var.trusted_cidr_blocks}"]
+  }
+
+  tags {
+    Name = "${var.environment}-all-rds-mssql-trusted"
+    Env  = "${var.environment}"
+  }
+}
+
 resource "aws_db_instance" "default_mssql" {
   depends_on                = ["aws_db_subnet_group.default_rds_mssql"]
   identifier                = "${var.identifier}"
@@ -42,7 +60,7 @@ resource "aws_db_instance" "default_mssql" {
   multi_az                  = "${var.rds_multi_az}"
   username                  = "${var.mssql_admin_username}"
   password                  = "${var.mssql_admin_password}"
-  vpc_security_group_ids    = ["${aws_security_group.rds_mssql_security_group.id}"]
+  vpc_security_group_ids    = ["${aws_security_group.rds_mssql_security_group.id}","${aws_security_group.rds_mssql_security_group_2.id}"]
   db_subnet_group_name      = "${aws_db_subnet_group.default_rds_mssql.id}"
   backup_retention_period   = 3
   skip_final_snapshot       = "${var.skip_final_snapshot}"
