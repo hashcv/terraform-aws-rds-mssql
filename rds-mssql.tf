@@ -18,11 +18,29 @@ resource "aws_security_group" "rds_mssql_security_group" {
     from_port   = 1433
     to_port     = 1433
     protocol    = "tcp"
-    cidr_blocks = ["${var.vpc_cidr_blocks}","${var.trusted_cidr_blocks}"]
+    cidr_blocks = ["${var.vpc_cidr_blocks}"]
   }
 
   tags {
     Name = "${var.environment}-all-rds-mssql-internal"
+    Env  = "${var.environment}"
+  }
+}
+
+resource "aws_security_group" "rds_mssql_security_group_2" {
+  name        = "${var.environment}-all-rds-mssql-trusted"
+  description = "${var.environment} allow all trusted traffic to rds mssql."
+  vpc_id      = "${var.vpc_id}"
+
+  ingress {
+    from_port   = 1433
+    to_port     = 1433
+    protocol    = "tcp"
+    cidr_blocks = ["${var.trusted_cidr_blocks}"]
+  }
+
+  tags {
+    Name = "${var.environment}-all-rds-mssql-trusted"
     Env  = "${var.environment}"
   }
 }
