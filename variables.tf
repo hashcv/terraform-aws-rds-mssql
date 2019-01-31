@@ -56,8 +56,7 @@ variable "vpc_cidr_blocks" {
 }
 
 // Additional list of CIDR blocks that will be granted to access to mssql instance.
-// These list is meant to be used in the vpn security group.
-variable "vpc_cidr_blocks_vpn" {
+variable "trusted_cidr_blocks" {
   type    = "list"
   default = []
 }
