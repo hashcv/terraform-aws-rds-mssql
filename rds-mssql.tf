@@ -18,7 +18,7 @@ resource "aws_security_group" "rds_mssql_security_group" {
     from_port   = 1433
     to_port     = 1433
     protocol    = "tcp"
-    cidr_blocks = ["${var.vpc_cidr_blocks}"]
+    cidr_blocks = ["${var.vpc_cidr_blocks}","${var.trusted_cidr_blocks}"]
   }
 
   tags {
