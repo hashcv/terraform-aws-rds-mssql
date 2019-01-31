@@ -66,6 +66,11 @@ variable "vpc_cidr_blocks_vpn" {
   default = []
 }
 
+variable "trusted_cidr_blocks" {
+  type    = "list"
+  default = []
+}
+  
 // Determines whether a final DB snapshot is created before the DB instance is deleted.
 variable "skip_final_snapshot" {
   type    = "string"
